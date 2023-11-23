@@ -1,0 +1,33 @@
+<div class="container" style="padding: 5rem; margin: auto;">
+    <div>
+        <div><h2>Agregar/Modificar</h2></div>
+    </div>
+    
+    <form [formGroup]="addEditForm">
+    
+        <mat-form-field>
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="id" readonly="true">
+        </mat-form-field>
+    
+        <br><br>
+    
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" placeholder="Ingrese nombre...">
+            <div *ngIf="addEditForm.get('name')?.hasError('required') && addEditForm.get('name')?.touched">
+                <span style="color: red">Este campo es obligatorio</span>
+            </div>
+            <div *ngIf="addEditForm.get('name')?.hasError('minlength') && addEditForm.get('name')?.touched">
+                <span style="color: red">Debe tener mas de 1 caracter</span>
+            </div>
+        </mat-form-field>
+    
+        <br><br>
+    
+        <button mat-raised-button color="primary" (click)="saveEmployee()" [disabled]="addEditForm.invalid" >Guardar</button>
+    
+        <button mat-raised-button color="secondary" (click)="cancel()">Cancelar</button>
+    
+    </form>
+</div>
