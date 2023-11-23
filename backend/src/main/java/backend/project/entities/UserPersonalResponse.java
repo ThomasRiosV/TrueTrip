@@ -1,0 +1,14 @@
+package backend.project.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserPersonalResponse {
+  private User newUser;
+  private Personal createdPersonal;
+}
+
